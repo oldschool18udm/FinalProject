@@ -1,5 +1,5 @@
-﻿namespace Snake;
-
+﻿using System;
+namespace Snake;
 public class Config
 {
     public const int SNAKELENGHT = 3;

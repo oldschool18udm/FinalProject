@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 namespace Snake;
 
 public class Hero
@@ -13,7 +14,6 @@ public class Hero
     private int len = Config.SNAKELENGHT;
     private int color = Config.SNAKECOLOR;
 
-
     public void CreateSnake()
     {
         _body.Clear();
@@ -25,6 +25,7 @@ public class Hero
         {
             _body.Add(new Point(Program.width / 2 - i, Program.height / 2, skinbody));
         }
+
         _tail.x = _body[_body.Count - 1].x - 1;
         _tail.y = _body[_body.Count - 1].y;
     }
@@ -36,6 +37,7 @@ public class Hero
         {
             _body[i].Draw();
         }
+
         _tail.Draw();
         Console.ResetColor();
     }
@@ -55,24 +57,22 @@ public class Hero
             direction[0] = -1;
             direction[1] = 0;
         }
-
         else if (inuptkey.Key == ConsoleKey.RightArrow)
         {
             direction[0] = 1;
             direction[1] = 0;
         }
-
         else if (inuptkey.Key == ConsoleKey.UpArrow)
         {
             direction[1] = -1;
             direction[0] = 0;
         }
-
         else if (inuptkey.Key == ConsoleKey.DownArrow)
         {
             direction[1] = 1;
             direction[0] = 0;
         }
+
         _body[0].x += direction[0];
         _body[0].y += direction[1];
     }
@@ -83,24 +83,26 @@ public class Hero
         {
             return true;
         }
+
         for (int i = 1; i < _body.Count; i++)
         {
             if (_body[0].x == _body[i].x && _body[0].y == _body[i].y)
                 return true;
         }
+
         return false;
     }
 
     public bool CollideFood()
     {
-        if (_body[0].x==Food.apple.x && _body[0].y == Food.apple.y)
+        if (_body[0].x == Food.apple.x && _body[0].y == Food.apple.y)
             return true;
         return false;
     }
 
     public void Grow()
     {
-        _body.Add(new Point(_body[_body.Count - 1].x, _body[_body.Count - 1].y,skinbody));
+        _body.Add(new Point(_body[_body.Count - 1].x, _body[_body.Count - 1].y, skinbody));
         _tail.x = _body[_body.Count - 1].x;
         _tail.y = _body[_body.Count - 1].y;
     }
