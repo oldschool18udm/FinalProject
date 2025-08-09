@@ -1,4 +1,5 @@
-﻿namespace Snake;
+﻿using System;
+namespace Snake;
 
 public class Walls
 {
@@ -10,7 +11,6 @@ public class Walls
         DrawWallHor(left, right,bottom, _skin);
         DrawWallVert(left,top, bottom, _skin);
         DrawWallVert(right,top, bottom, _skin);
-        
     }
 
     private void DrawWallHor(int left, int right, int y, string skin)

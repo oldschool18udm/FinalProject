@@ -1,11 +1,12 @@
-﻿namespace Snake;
-using System;
+﻿using System;
+namespace Snake;
 
 public class Point
 {
     public int x = 10;
     public int y = 10;
     public string skin = "o";
+
     public Point(int x, int y, string skin)
     {
         this.x = x;
@@ -13,7 +14,7 @@ public class Point
         this.skin = skin;
     }
 
-    public  void Draw()
+    public void Draw()
     {
         DrawPoint(skin);
     }
@@ -22,6 +23,7 @@ public class Point
     {
         DrawPoint(" ");
     }
+
     private void DrawPoint(string skin)
     {
         Console.SetCursorPosition(x, y);

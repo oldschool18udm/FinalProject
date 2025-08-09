@@ -1,10 +1,10 @@
-﻿namespace Snake;
-using System;
+﻿using System;
 using System.Threading;
+
+namespace Snake;
 
 class Program
 {
-   
     public static int width = Config.BOARDWIDTH;
     public static int height = Config.BOARDHEIGHT;
     public static int gamespeed = Config.GAMESPEED;
@@ -19,10 +19,8 @@ class Program
     public static string playerName = "Player";
     public static int bestScore = 0;
 
-
     static void Main(string[] args)
     {
-       
         Console.CursorVisible = false;
         while (true)
         {
@@ -55,6 +53,7 @@ class Program
             {
                 inuptkey = Console.ReadKey();
             }
+
             snake.Move(inuptkey);
             snake.Draw();
             apple.Draw();
@@ -64,9 +63,10 @@ class Program
                 {
                     bestScore = playerScore;
                 }
+
                 if (lives > 0)
                 {
-                    Console.SetCursorPosition(10,5);
+                    Console.SetCursorPosition(10, 5);
                     Console.Write("Missed chance!");
                     inuptkey = Console.ReadKey();
                     ResetGame();
@@ -78,12 +78,14 @@ class Program
                     break;
                 }
             }
+
             if (snake.CollideFood())
             {
                 apple.Spawn();
                 snake.Grow();
                 playerScore++;
             }
+
             Thread.Sleep(gamespeed);
         }
     }
@@ -96,7 +98,7 @@ class Program
         Console.WriteLine("Welcome to Snake Game!");
         Console.SetCursorPosition(10, 6);
         Console.Write("Input your name: ");
-        playerName = Console.ReadLine()+"";
+        playerName = Console.ReadLine() + "";
         Console.Clear();
         walls.Draw(0, 0, width, height);
         Console.SetCursorPosition(10, 5);
@@ -154,4 +156,4 @@ class Program
         state = 0;
         playerScore = 0;
     }
-    }
+}

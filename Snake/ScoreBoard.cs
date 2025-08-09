@@ -10,17 +10,17 @@ public class ScoreBoard
     private static int starty = 0;
     public static Walls walls = new Walls();
 
-    public  void DrawGameState()
+    public void DrawGameState()
     {
         Console.SetCursorPosition(startx, 0);
-        walls.Draw(startx,starty,startx+sizex,sizey+starty);
-        Console.SetCursorPosition(startx+2, starty+1);
+        walls.Draw(startx, starty, startx + sizex, sizey + starty);
+        Console.SetCursorPosition(startx + 2, starty + 1);
         Console.Write($"Score: {Program.playerScore}");
-        
-        Console.SetCursorPosition(startx+2, starty+2);
+
+        Console.SetCursorPosition(startx + 2, starty + 2);
         Console.Write($"Lives: {Program.lives}");
-        
-        Console.SetCursorPosition(startx+2, starty+3);
+
+        Console.SetCursorPosition(startx + 2, starty + 3);
         Console.Write($"Record: {Program.bestScore}");
     }
 }

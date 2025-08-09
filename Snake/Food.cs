@@ -1,5 +1,6 @@
-﻿namespace Snake;
-using System;
+﻿using System;
+
+namespace Snake;
 
 public class Food
 {
